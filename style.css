@@ -1,0 +1,26 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+#list{
+  width: 50%;
+  position: relative;
+  z-index: 1;
+  color: white;
+  padding: 30px;
+}
+
+#list li{
+  width: 70%;
+  margin-bottom: 30px;
+}
+
+#book{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+ 
