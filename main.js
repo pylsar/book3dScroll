@@ -10,7 +10,7 @@ const camera = new THREE.PerspectiveCamera(
   0.5,
   1000
 );
-camera.position.z = 5;
+camera.position.z = 6;
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -19,12 +19,34 @@ book.appendChild(renderer.domElement);
 
 //Cube
 
-const geometry = new THREE.BoxGeometry(1, 1, 1);
-const material = new THREE.MeshBasicMaterial({
-  color: 0x00aabb
+const ambiant = new THREE.AmbientLight(0x222222);
+scene.add(ambiant);
+
+const light = new THREE.DirectionalLight(0xffffff);
+light.position.set(0, 0, 6) // 6 потому что позиция камеры по z = 6
+scene.add(light);
+
+const loader = new THREE.TextureLoader();
+
+const images = [
+  'assets/img/edje.jpg' , 'assets/img/spin.jpg',
+  'assets/img/top.jpg', 'assets/img/bottom.jpg',
+  'assets/img/front.jpg', 'assets/img/back.jpg'
+]
+
+const materials = images.map(image => {
+  return new THREE.MeshLambertMaterial({
+    map: loader.load(image)
+  })
 });
 
-const cube = new THREE.Mesh(geometry, material);
+const geometry = new THREE.BoxGeometry(3.5, 5, 0.5);
+// const material = new THREE.MeshLambertMaterial({
+//   // color: 0x2727e6
+//   map: loader.load('assets/img/mk.jpg')
+// });
+
+const cube = new THREE.Mesh(geometry, materials); // materials которые перебираем мэпом
 scene.add(cube);
 
 function animate() {
