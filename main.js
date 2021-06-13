@@ -52,9 +52,13 @@ scene.add(cube);
 function animate() {
   requestAnimationFrame(animate);
 
-  cube.rotation.x += 0.01;
-  cube.rotation.y += 0.01;
+  // cube.rotation.x += 0.01;
+  // cube.rotation.y += 0.01;
 
+  const current = window.pageYOffset / 1000 // 1000 потому что в боди так 
+  const rotX = current
+
+  cube.rotation.set(rotX, 0, 0);
   renderer.render(scene, camera);
 }
 animate();
