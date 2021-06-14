@@ -49,17 +49,26 @@ const geometry = new THREE.BoxGeometry(3.5, 5, 0.5);
 const cube = new THREE.Mesh(geometry, materials); // materials которые перебираем мэпом
 scene.add(cube);
 
+let current = window.pageYOffset / 1000 // 1000 потому что в боди так 
+let currentAnim = window.pageYOffset / 1000 // необходимо обновлять
+
+
 function animate() {
   requestAnimationFrame(animate);
+  // для smoоth эффекта 
+  current += (currentAnim - current) * 0.02; 
 
-  // cube.rotation.x += 0.01;
-  // cube.rotation.y += 0.01;
+  // const rotX = current * Math.PI;
+  const rotX = current * -0.5 + 0.5;
+  // const rotY = current * Math.PI * 2;
+  const rotY = (current *0.9 +0.1) * Math.PI * 2;
 
-  const current = window.pageYOffset / 1000 // 1000 потому что в боди так 
-  const rotX = current
-
-  cube.rotation.set(rotX, 0, 0);
+  cube.rotation.set(rotX, rotY, 0);
   renderer.render(scene, camera);
 }
 animate();
+
+window.addEventListener('scroll', function(){
+  currentAnim = window.pageYOffset / 1000
+})
 
