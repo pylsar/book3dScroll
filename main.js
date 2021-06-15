@@ -1,4 +1,5 @@
 import './style.css'
+import './components/animate.js'
 
 import * as THREE from "three";
 const book = document.getElementById('book');
@@ -49,8 +50,8 @@ const geometry = new THREE.BoxGeometry(3.5, 5, 0.5);
 const cube = new THREE.Mesh(geometry, materials); // materials которые перебираем мэпом
 scene.add(cube);
 
-let current = window.pageYOffset / 1000 // 1000 потому что в боди так 
-let currentAnim = window.pageYOffset / 1000 // необходимо обновлять
+let current = window.pageYOffset / 1300 // 1300 потому что в боди так 
+let currentAnim = window.pageYOffset / 1300 // необходимо обновлять
 
 
 function animate() {
@@ -69,6 +70,6 @@ function animate() {
 animate();
 
 window.addEventListener('scroll', function(){
-  currentAnim = window.pageYOffset / 1000
+  currentAnim = window.pageYOffset / 1300
 })
 

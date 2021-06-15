@@ -1,23 +1,16 @@
 *{
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 body{
-  height: calc(1000px + 100vh);
-}
-
-#list{
-  width: 50%;
-  position: relative;
-  z-index: 1;
-  color: white;
-  padding: 30px;
+  height: calc(1300px + 100vh);
 }
 
 #list li{
   width: 70%;
   margin-bottom: 30px;
-}
+} 
 
 #book{
   position: fixed;
@@ -25,5 +18,38 @@ body{
   left: 0;
   z-index: 0;
 }
+#list{
+  position: relative;
+  z-index: 1;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+  font-size: 70px;
+  margin-top: 50px;
+}
+h1 span {
+  display: inline-block;
+}
+.subtitle {
+  font-size: 50px;
+  text-align: center;
+  display: block;
+}
+.list {
+  margin-top: 100px;
+  padding: 0 24px;
+  width: 70%;
+}
+
+.list li {
+  font-size: 30px;
+  margin-bottom: 24px;
+}
+.list li svg {
+  opacity: 0;
+}
+
 
  
